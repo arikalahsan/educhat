@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduChat -English Grammar</title>
+    <link rel="shortcut icon" href="blob:https://www.facebook.com/bd47cbd4-857f-4179-81ae-128c69cd82aa" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Modern Color Scheme */
+        :root {
+            --primary-blue: #2563eb;
+            --dark-blue: #1e40af;
+            --light-blue: #93c5fd;
+            --accent-blue: #3b82f6;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f9fafb;
+            --white: #ffffff;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --error: #ef4444;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+            --radius-sm: 0.25rem;
+            --radius-md: 0.5rem;
+            --radius-lg: 1rem;
+        }
+
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: var(--dark-blue);
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -0.75rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4rem;
+            height: 0.25rem;
+            background: var(--accent-blue);
+            border-radius: var(--radius-sm);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: var(--primary-blue);
+            color: white;
+            border: none;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn:hover {
+            background: var(--dark-blue);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary-blue);
+            color: var(--primary-blue);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-blue);
+            color: white;
+        }
+
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--white);
+            box-shadow: var(--shadow-sm);
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+
+        .logo span {
+            color: var(--text-dark);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-dark);
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-blue);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+            color: white;
+            padding: 8rem 0 5rem;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .hero-btns .btn-outline {
+            color: white;
+            border-color: white;
+        }
+
+        .hero-btns .btn-outline:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        /* Grammar Levels Section */
+        .levels {
+            background: var(--white);
+        }
+
+        .levels-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .level-card {
+            background: var(--white);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+
+        .level-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .level-header {
+            padding: 1.5rem;
+            background: var(--primary-blue);
+            color: white;
+        }
+
+        .level-header h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .level-body {
+            padding: 1.5rem;
+        }
+
+        .level-body ul {
+            list-style: none;
+        }
+
+        .level-body li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+
+        .level-body li:last-child {
+            border-bottom: none;
+        }
+
+        .level-body li i {
+            margin-right: 0.75rem;
+            color: var(--primary-blue);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: var(--light-blue);
+            color: var(--primary-blue);
+            border-radius: 1rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-left: auto;
+        }
+
+        /* Grammar Topics Section */
+        .topics {
+            background: var(--bg-light);
+        }
+
+        .topics-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .topic-card {
+            background: var(--white);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--primary-blue);
+        }
+
+        .topic-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .topic-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--primary-blue);
+        }
+
+        .topic-card p {
+            color: var(--text-light);
+            font-size: 0.875rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Quiz Section */
+        .quiz-section {
+            background: var(--white);
+        }
+
+        .quiz-container {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .quiz-card {
+            background: var(--white);
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .quiz-progress {
+            font-weight: 600;
+            color: var(--primary-blue);
+        }
+
+        .quiz-question {
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            line-height: 1.5;
+        }
+
+        .quiz-options {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .quiz-option {
+            padding: 1rem 1.5rem;
+            background: var(--bg-light);
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 2px solid transparent;
+        }
+
+        .quiz-option:hover {
+            background: #e0e7ff;
+            border-color: var(--light-blue);
+        }
+
+        .quiz-option.selected {
+            background: #e0e7ff;
+            border-color: var(--primary-blue);
+        }
+
+        .quiz-option.correct {
+            background: #d1fae5;
+            border-color: var(--success);
+        }
+
+        .quiz-option.incorrect {
+            background: #fee2e2;
+            border-color: var(--error);
+        }
+
+        .quiz-feedback {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            border-radius: var(--radius-sm);
+            display: none;
+        }
+
+        .quiz-feedback.correct {
+            background: #d1fae5;
+            color: var(--success);
+            display: block;
+        }
+
+        .quiz-feedback.incorrect {
+            background: #fee2e2;
+            color: var(--error);
+            display: block;
+        }
+
+        .quiz-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
+
+        /* Leaderboard */
+        .leaderboard {
+            background: var(--white);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            box-shadow: var(--shadow-sm);
+            height: fit-content;
+            position: sticky;
+            top: 6rem;
+        }
+
+        .leaderboard h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-blue);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .leaderboard h3 i {
+            font-size: 1.5rem;
+        }
+
+        .leaderboard-list {
+            list-style: none;
+        }
+
+        .leaderboard-item {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .leaderboard-item:last-child {
+            border-bottom: none;
+        }
+
+        .leaderboard-rank {
+            width: 1.75rem;
+            height: 1.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--light-blue);
+            color: var(--primary-blue);
+            border-radius: 50%;
+            font-weight: 600;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+
+        .leaderboard-item:nth-child(1) .leaderboard-rank {
+            background: #fde047;
+            color: #b45309;
+        }
+
+        .leaderboard-item:nth-child(2) .leaderboard-rank {
+            background: #e5e7eb;
+            color: #4b5563;
+        }
+
+        .leaderboard-item:nth-child(3) .leaderboard-rank {
+            background: #fbcfe8;
+            color: #be185d;
+        }
+
+        .leaderboard-user {
+            display: flex;
+            align-items: center;
+            flex-grow: 1;
+        }
+
+        .leaderboard-avatar {
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            background: var(--light-blue);
+            margin-right: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-blue);
+            font-weight: 600;
+            font-size: 0.75rem;
+        }
+
+        .leaderboard-score {
+            font-weight: 600;
+            color: var(--primary-blue);
+        }
+
+        /* Detailed Explanation Section */
+        .explanation {
+            background: var(--bg-light);
+        }
+
+        .explanation-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .explanation-card {
+            background: var(--white);
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 2rem;
+        }
+
+        .explanation-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .explanation-card h3 i {
+            font-size: 1.75rem;
+        }
+
+        .explanation-content {
+            margin-top: 1.5rem;
+        }
+
+        .explanation-content h4 {
+            font-size: 1.125rem;
+            margin: 1.5rem 0 0.75rem;
+            color: var(--dark-blue);
+        }
+
+        .example-box {
+            background: #f8fafc;
+            border-left: 3px solid var(--primary-blue);
+            padding: 1rem;
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            margin: 1rem 0;
+        }
+
+        .example-box p {
+            margin-bottom: 0.5rem;
+        }
+
+        .example-correct {
+            color: var(--success);
+            font-weight: 500;
+        }
+
+        .example-incorrect {
+            color: var(--error);
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-blue);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-col h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-col h3:after {
+            content: '';
+            position: absolute;
+            bottom: -0.5rem;
+            left: 0;
+            width: 2rem;
+            height: 2px;
+            background: var(--light-blue);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-col a {
+            color: rgba(255,255,255,0.8);
+            transition: all 0.2s ease;
+        }
+
+        .footer-col a:hover {
+            color: white;
+            padding-left: 0.25rem;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.6);
+            font-size: 0.875rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
+            .quiz-container {
+                grid-template-columns: 1fr;
+            }
+
+            .leaderboard {
+                position: static;
+                margin-top: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-btns {
+                flex-direction: column;
+            }
+
+            section {
+                padding: 3rem 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .section-title {
+                font-size: 1.75rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+
+        a{
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Edu<span>Chat</span></div>
+                <ul class="nav-links" style="list-style-type: none; ">
+                    <li><a style="text-decoration: none;"  href="#home">Home</a></li>
+                    <li><a style="text-decoration: none;" href="#levels">Levels</a></li>
+                    <li><a style="text-decoration: none;" href="#topics">Topics</a></li>
+                    <li><a style="text-decoration: none;" href="#quiz">Quiz</a></li>
+                    <li><a style="text-decoration: none;" href="#explanation">Learn</a></li>
+                </ul>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>I'll Help You <br>
+                    Learn or Teach English <br>
+                    The Easy Way</h1>
+                <p>Clear explanations, practical examples, and interactive quizzes to help you improve your English grammar skills effectively.</p>
+                <div class="hero-btns">
+                    <a href="#quiz"class="btn">Start Quiz</a>
+                    <a href="#explanation" class="btn btn-outline">Learn Grammar</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Grammar Levels Section -->
+    <section class="levels" id="levels">
+        <div class="container">
+            <h2 class="section-title">Grammar Levels</h2>
+            <p class="text-center" style="max-width: 700px; margin: 0 auto 2rem;">
+                Our curriculum is structured from foundational concepts to more complex grammar rules, ensuring progressive learning.
+            </p>
+            
+            <div class="levels-container">
+                <!-- Beginner Level -->
+                <div class="level-card">
+                    <div class="level-header">
+                        <h3>Beginner</h3>
+                        <p>Foundational grammar concepts</p>
+                    </div>
+                    <div class="level-body">
+                        <ul>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                Parts of Speech
+                                <span class="badge">Essential</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                Simple Tenses
+                                <span class="badge">Core</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                Basic Sentence Structure
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                Articles (a, an, the)
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                Singular/Plural Nouns
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Elementary Level -->
+                <div class="level-card">
+                    <div class="level-header" style="background: #3b82f6;">
+                        <h3>Elementary</h3>
+                        <p>Building on basics</p>
+                    </div>
+                    <div class="level-body">
+                        <ul>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                Continuous Tenses
+                                <span class="badge">Important</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                Modal Verbs
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                Comparatives/Superlatives
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                Basic Prepositions
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                Question Forms
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Intermediate Level -->
+                <div class="level-card">
+                    <div class="level-header" style="background: #1d4ed8;">
+                        <h3>Intermediate</h3>
+                        <p>More complex structures</p>
+                    </div>
+                    <div class="level-body">
+                        <ul>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                Perfect Tenses
+                                <span class="badge">Challenging</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                Passive Voice
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                Reported Speech
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                Conditionals
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                Relative Clauses
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Grammar Topics Section -->
+    <section class="topics" id="topics">
+        <div class="container">
+            <h2 class="section-title">Popular Grammar Topics</h2>
+            <p class="text-center" style="max-width: 700px; margin: 0 auto 2rem;">
+                Explore our most frequently studied grammar concepts with clear explanations and examples.
+            </p>
+            
+            <div class="topics-container">
+                <div class="topic-card">
+                    <h3>Tenses</h3>
+                    <p>Learn all 12 English tenses with timelines, examples, and usage rules.</p>
+                    <a href="#explanation" class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.875rem;">Learn More</a>
+                </div>
+                
+                <div class="topic-card">
+                    <h3>Parts of Speech</h3>
+                    <p>Understand nouns, verbs, adjectives, adverbs and their functions in sentences.</p>
+                    <a href="#explanation" class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.875rem;">Learn More</a>
+                </div>
+                
+                <div class="topic-card">
+                    <h3>Articles</h3>
+                    <p>Master the use of 'a', 'an', and 'the' with practical guidelines.</p>
+                    <a href="#explanation" class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.875rem;">Learn More</a>
+                </div>
+                
+                <div class="topic-card">
+                    <h3>Prepositions</h3>
+                    <p>Learn how to use prepositions of time, place, and movement correctly.</p>
+                    <a href="#explanation" class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.875rem;">Learn More</a>
+                </div>
+                
+                <div class="topic-card">
+                    <h3>Modal Verbs</h3>
+                    <p>Understand can, could, may, might, must, should and their uses.</p>
+                    <a href="#explanation" class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.875rem;">Learn More</a>
+                </div>
+                
+                <div class="topic-card">
+                    <h3>Conditionals</h3>
+                    <p>Learn zero, first, second, third and mixed conditional forms.</p>
+                    <a href="#explanation" class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.875rem;">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiz Section with Leaderboard -->
+    <section class="quiz-section" id="quiz">
+        <div class="container">
+            <h2 class="section-title">Test Your Knowledge</h2>
+            <p class="text-center" style="max-width: 700px; margin: 0 auto 2rem;">
+                Take our interactive quiz to assess your grammar skills and compare your score with others.
+            </p>
+            
+            <div class="quiz-container">
+                <!-- Quiz Area -->
+                <div class="quiz-card">
+                    <div class="quiz-header">
+                        <h3>Grammar Quiz</h3>
+                        <div class="quiz-progress">Question 1 of 10</div>
+                    </div>
+                    
+                    <div class="quiz-question">
+                        What is the correct form of the verb in this sentence: "She _____ to school every day."?
+                    </div>
+                    
+                    <div class="quiz-options">
+                        <div class="quiz-option">go</div>
+                        <div class="quiz-option selected">goes</div>
+                        <div class="quiz-option">going</div>
+                        <div class="quiz-option">gone</div>
+                    </div>
+                    
+                    <div class="quiz-feedback correct">
+                        <i class="fas fa-check-circle"></i> Correct! "Goes" is the right answer because it agrees with the third person singular subject "she".
+                    </div>
+                    
+                    <div class="quiz-actions">
+                        <button class="btn btn-outline">
+                            <i class="fas fa-arrow-left"></i> Previous
+                        </button>
+                        <button class="btn">
+                            Next <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Leaderboard -->
+                <div class="leaderboard">
+                    <h3><i class="fas fa-trophy"></i> Leaderboard</h3>
+                    <ul class="leaderboard-list">
+                        <li class="leaderboard-item">
+                            <div class="leaderboard-rank">1</div>
+                            <div class="leaderboard-user">
+                                <div class="leaderboard-avatar">AM</div>
+                                <div>Alex Morgan</div>
+                            </div>
+                            <div class="leaderboard-score">98%</div>
+                        </li>
+                        <li class="leaderboard-item">
+                            <div class="leaderboard-rank">2</div>
+                            <div class="leaderboard-user">
+                                <div class="leaderboard-avatar">SJ</div>
+                                <div>Sarah Johnson</div>
+                            </div>
+                            <div class="leaderboard-score">95%</div>
+                        </li>
+                        <li class="leaderboard-item">
+                            <div class="leaderboard-rank">3</div>
+                            <div class="leaderboard-user">
+                                <div class="leaderboard-avatar">RK</div>
+                                <div>Robert Kim</div>
+                            </div>
+                            <div class="leaderboard-score">93%</div>
+                        </li>
+                        <li class="leaderboard-item">
+                            <div class="leaderboard-rank">4</div>
+                            <div class="leaderboard-user">
+                                <div class="leaderboard-avatar">MP</div>
+                                <div>Maria Perez</div>
+                            </div>
+                            <div class="leaderboard-score">91%</div>
+                        </li>
+                        <li class="leaderboard-item">
+                            <div class="leaderboard-rank">5</div>
+                            <div class="leaderboard-user">
+                                <div class="leaderboard-avatar">TW</div>
+                                <div>Thomas Wang</div>
+                            </div>
+                            <div class="leaderboard-score">89%</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Explanation Section -->
+    <section class="explanation" id="explanation">
+        <div class="container">
+            <h2 class="section-title">Grammar Explanations</h2>
+            <p class="text-center" style="max-width: 700px; margin: 0 auto 3rem;">
+                Clear, detailed explanations of English grammar concepts with multiple examples.
+            </p>
+            
+            <div class="explanation-container">
+                <!-- Present Simple Explanation -->
+                <div class="explanation-card">
+                    <h3><i class="fas fa-clock"></i> Present Simple Tense</h3>
+                    
+                    <div class="explanation-content">
+                        <h4>When to Use:</h4>
+                        <p>The present simple tense is used for:</p>
+                        <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                            <li>Habits and routines (I drink coffee every morning)</li>
+                            <li>Permanent situations (She works in a bank)</li>
+                            <li>General truths (Water boils at 100°C)</li>
+                            <li>Fixed arrangements (The train leaves at 6 pm)</li>
+                        </ul>
+                        
+                        <h4>Structure:</h4>
+                        <p><strong>Positive:</strong> Subject + base form of verb (add -s/-es for he/she/it)</p>
+                        <p><strong>Negative:</strong> Subject + do/does + not + base form</p>
+                        <p><strong>Question:</strong> Do/Does + subject + base form</p>
+                        
+                        <div class="example-box">
+                            <h4>Examples:</h4>
+                            <p><span class="example-correct">Correct:</span> "She <strong>works</strong> at a hospital." (Third person singular adds -s)</p>
+                            <p><span class="example-correct">Correct:</span> "They <strong>work</strong> at a hospital." (Plural subject uses base form)</p>
+                            <p><span class="example-incorrect">Incorrect:</span> "She work at a hospital." (Missing -s for third person singular)</p>
+                        </div>
+                        
+                        <h4>Common Mistakes:</h4>
+                        <ul style="margin-left: 1.5rem;">
+                            <li>Forgetting the -s/-es ending for third person singular</li>
+                            <li>Using present simple for actions happening now (should use present continuous)</li>
+                            <li>Incorrect auxiliary verbs in negatives/questions</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Articles Explanation -->
+                <div class="explanation-card">
+                    <h3><i class="fas fa-file-alt"></i> Articles (a, an, the)</h3>
+                    
+                    <div class="explanation-content">
+                        <h4>When to Use:</h4>
+                        <p>Articles are used before nouns:</p>
+                        <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                            <li><strong>a/an</strong> - indefinite articles (first mention, non-specific)</li>
+                            <li><strong>the</strong> - definite article (specific or previously mentioned)</li>
+                            <li><strong>no article</strong> - with plural/uncountable nouns in general sense</li>
+                        </ul>
+                        
+                        <h4>Rules:</h4>
+                        <p><strong>'a'</strong> before consonant sounds (a book, a university)</p>
+                        <p><strong>'an'</strong> before vowel sounds (an apple, an hour)</p>
+                        <p><strong>'the'</strong> when the listener knows which specific thing you mean</p>
+                        
+                        <div class="example-box">
+                            <h4>Examples:</h4>
+                            <p><span class="example-correct">Correct:</span> "I saw <strong>a</strong> dog in <strong>the</strong> park." (First mention uses 'a', specific park uses 'the')</p>
+                            <p><span class="example-correct">Correct:</span> "<strong>The</strong> dog was chasing <strong>a</strong> cat." (Now we know which dog)</p>
+                            <p><span class="example-incorrect">Incorrect:</span> "I want to buy the car." (Which car? Should be 'a car' if not specific)</p>
+                        </div>
+                        
+                        <h4>Common Mistakes:</h4>
+                        <ul style="margin-left: 1.5rem;">
+                            <li>Using 'the' with general plural/uncountable nouns</li>
+                            <li>Using 'a' before vowel sounds (should be 'an')</li>
+                            <li>Omitting articles with singular countable nouns</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>TomiGrammar</h3>
+                    <p>Your complete guide to mastering English grammar from basic to intermediate levels.</p>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#levels">Grammar Levels</a></li>
+                        <li><a href="#topics">Topics</a></li>
+                        <li><a href="#quiz">Quiz</a></li>
+                        <li><a href="#explanation">Explanations</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Grammar Resources</h3>
+                    <ul>
+                        <li><a href="#">Beginner Lessons</a></li>
+                        <li><a href="#">Intermediate Topics</a></li>
+                        <li><a href="#">Practice Exercises</a></li>
+                        <li><a href="#">Common Mistakes</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><a href="mailto:info@tomigrammar.com">info@tomigrammar.com</a></li>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Feedback</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 EduChat . All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Menu Toggle
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navLinks = document.querySelector('.nav-links');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            });
+            
+            // Responsive adjustment for mobile menu
+            function handleResize() {
+                if (window.innerWidth > 768) {
+                    navLinks.style.display = 'flex';
+                } else {
+                    navLinks.style.display = 'none';
+                }
+            }
+            
+            window.addEventListener('resize', handleResize);
+            handleResize(); // Initialize
+            
+            // Quiz Functionality
+            const quizQuestions = [
+                {
+                    question: "What is the correct form of the verb in this sentence: 'She _____ to school every day.'?",
+                    options: ["go", "goes", "going", "gone"],
+                    answer: 1,
+                    explanation: "The correct answer is 'goes' because with third person singular subjects (he/she/it), we add -s/-es to the base form of the verb in present simple tense."
+                },
+                {
+                    question: "Which sentence uses the correct article?",
+                    options: [
+                        "I saw a elephant at the zoo.",
+                        "I saw an elephant at the zoo.",
+                        "I saw the elephant at zoo.",
+                        "I saw elephant at the zoo."
+                    ],
+                    answer: 1,
+                    explanation: "'An elephant' is correct because 'elephant' begins with a vowel sound, requiring 'an'. 'The zoo' is also correct because we're referring to a specific, known place."
+                },
+                {
+                    question: "Identify the correct present continuous sentence:",
+                    options: [
+                        "She eats breakfast now.",
+                        "She is eating breakfast now.",
+                        "She has eaten breakfast now.",
+                        "She was eating breakfast now."
+                    ],
+                    answer: 1,
+                    explanation: "The present continuous (is + verb-ing) is used for actions happening at the moment of speaking. 'She is eating breakfast now' is the correct form."
+                },
+                {
+                    question: "Which sentence demonstrates correct use of the past simple tense?",
+                    options: [
+                        "I have finished my work yesterday.",
+                        "I finished my work yesterday.",
+                        "I was finishing my work yesterday.",
+                        "I had finished my work yesterday."
+                    ],
+                    answer: 1,
+                    explanation: "The past simple tense (verb + -ed or irregular form) is used for completed actions at specific times in the past. 'I finished my work yesterday' is correct."
+                }
+            ];
+            
+            let currentQuestionIndex = 0;
+            let score = 0;
+            const quizQuestionElement = document.querySelector('.quiz-question');
+            const quizOptionsElement = document.querySelector('.quiz-options');
+            const quizFeedbackElement = document.querySelector('.quiz-feedback');
+            const quizProgressElement = document.querySelector('.quiz-progress');
+            const quizNextButton = document.querySelector('.quiz-actions .btn:last-child');
+            const quizPrevButton = document.querySelector('.quiz-actions .btn:first-child');
+            
+            function loadQuestion(index) {
+                const question = quizQuestions[index];
+                quizQuestionElement.textContent = question.question;
+                quizProgressElement.textContent = `Question ${index + 1} of ${quizQuestions.length}`;
+                
+                quizOptionsElement.innerHTML = '';
+                question.options.forEach((option, i) => {
+                    const optionElement = document.createElement('div');
+                    optionElement.className = 'quiz-option';
+                    optionElement.textContent = option;
+                    optionElement.addEventListener('click', () => selectAnswer(i));
+                    quizOptionsElement.appendChild(optionElement);
+                });
+                
+                quizFeedbackElement.className = 'quiz-feedback';
+                quizFeedbackElement.innerHTML = '';
+                
+                // Disable previous button on first question
+                quizPrevButton.disabled = index === 0;
+                
+                // Change next button text on last question
+                quizNextButton.innerHTML = index === quizQuestions.length - 1 ? 
+                    'See Results <i class="fas fa-poll"></i>' : 
+                    'Next <i class="fas fa-arrow-right"></i>';
+            }
+            
+            function selectAnswer(selectedIndex) {
+                const question = quizQuestions[currentQuestionIndex];
+                const options = document.querySelectorAll('.quiz-option');
+                
+                options.forEach((option, index) => {
+                    option.classList.remove('selected', 'correct', 'incorrect');
+                    
+                    if (index === question.answer) {
+                        option.classList.add('correct');
+                    } else if (index === selectedIndex) {
+                        option.classList.add('incorrect');
+                    }
+                });
+                
+                // Show feedback
+                quizFeedbackElement.className = `quiz-feedback ${selectedIndex === question.answer ? 'correct' : 'incorrect'}`;
+                quizFeedbackElement.innerHTML = `<i class="fas ${selectedIndex === question.answer ? 'fa-check-circle' : 'fa-times-circle'}"></i> ${question.explanation}`;
+                
+                // Update score if correct
+                if (selectedIndex === question.answer) {
+                    score++;
+                }
+            }
+            
+            quizNextButton.addEventListener('click', function() {
+                if (currentQuestionIndex < quizQuestions.length - 1) {
+                    currentQuestionIndex++;
+                    loadQuestion(currentQuestionIndex);
+                } else {
+                    // Show results
+                    quizQuestionElement.textContent = `Quiz Completed! Your score: ${score}/${quizQuestions.length}`;
+                    quizOptionsElement.innerHTML = '';
+                    quizFeedbackElement.className = 'quiz-feedback';
+                    quizFeedbackElement.innerHTML = `You answered ${Math.round((score/quizQuestions.length)*100)}% correctly. ${score === quizQuestions.length ? 'Perfect! 🎉' : score > quizQuestions.length/2 ? 'Good job! 👍' : 'Keep practicing! 💪'}`;
+                    quizNextButton.textContent = 'Restart Quiz';
+                    quizNextButton.onclick = function() {
+                        currentQuestionIndex = 0;
+                        score = 0;
+                        loadQuestion(0);
+                        quizNextButton.onclick = arguments.callee; // Reset to original function
+                    };
+                }
+            });
+            
+            quizPrevButton.addEventListener('click', function() {
+                if (currentQuestionIndex > 0) {
+                    currentQuestionIndex--;
+                    loadQuestion(currentQuestionIndex);
+                }
+            });
+            
+            // Initialize quiz
+            loadQuestion(0);
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
