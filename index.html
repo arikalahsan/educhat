@@ -1,29 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EduChat -English Grammar</title>
+    <title>EduChat - English Grammar</title>
     <link rel="shortcut icon" href="logo.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <style>
         /* Modern Color Scheme */
         :root {
-            --primary-blue: #2563eb;
-            --dark-blue: #1e40af;
-            --light-blue: #93c5fd;
-            --accent-blue: #3b82f6;
-            --text-dark: #1f2937;
-            --text-light: #6b7280;
-            --bg-light: #f9fafb;
+            --primary-blue: #4361ee;
+            --dark-blue: #3a0ca3;
+            --light-blue: #4895ef;
+            --accent-blue: #4cc9f0;
+            --text-dark: #2b2d42;
+            --text-light: #8d99ae;
+            --bg-light: #f8f9fa;
             --white: #ffffff;
-            --success: #10b981;
-            --warning: #f59e0b;
-            --error: #ef4444;
-            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
-            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
-            --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
-            --radius-sm: 0.25rem;
+            --success: #4ade80;
+            --warning: #fbbf24;
+            --error: #f87171;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+            --radius-sm: 0.375rem;
             --radius-md: 0.5rem;
             --radius-lg: 1rem;
         }
@@ -36,7 +39,7 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.6;
             color: var(--text-dark);
             background-color: var(--bg-light);
@@ -57,7 +60,7 @@
             text-align: center;
             margin-bottom: 3rem;
             font-size: 2.25rem;
-            font-weight: 700;
+            font-weight: 600;
             color: var(--dark-blue);
             position: relative;
         }
@@ -76,16 +79,17 @@
 
         .btn {
             display: inline-block;
-            padding: 0.75rem 1.5rem;
+            padding: 0.75rem 1.75rem;
             background: var(--primary-blue);
             color: white;
             border: none;
             border-radius: var(--radius-sm);
-            font-weight: 600;
+            font-weight: 500;
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: all 0.3s ease;
             text-align: center;
             box-shadow: var(--shadow-sm);
+            font-family: 'Poppins', sans-serif;
         }
 
         .btn:hover {
@@ -123,9 +127,16 @@
         }
 
         .logo {
-            font-size: 1.5rem;
+            font-size: 1.75rem;
             font-weight: 700;
             color: var(--primary-blue);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 36px;
+            margin-right: 10px;
         }
 
         .logo span {
@@ -142,6 +153,12 @@
             font-weight: 500;
             position: relative;
             padding: 0.5rem 0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-blue);
         }
 
         .nav-links a:after {
@@ -159,29 +176,156 @@
             width: 100%;
         }
 
-        .mobile-menu-btn {
+        /* Auth Buttons */
+        .auth-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .auth-buttons .btn {
+            padding: 0.6rem 1.25rem;
+            font-size: 0.875rem;
+        }
+
+        /* Live Time */
+        .live-time {
+            font-size: 0.875rem;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-left: 1.5rem;
+        }
+
+        /* Modal Styles */
+        .modal {
             display: none;
-            background: none;
-            border: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal.active {
+            opacity: 1;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 2.5rem;
+            border-radius: var(--radius-md);
+            width: 100%;
+            max-width: 450px;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+        }
+
+        .modal.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1.25rem;
+            right: 1.25rem;
             font-size: 1.5rem;
-            color: var(--text-dark);
             cursor: pointer;
+            color: var(--text-light);
+            transition: color 0.2s ease;
+        }
+
+        .close-modal:hover {
+            color: var(--text-dark);
+        }
+
+        .modal-title {
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-blue);
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.875rem;
+            border: 1px solid #e2e8f0;
+            border-radius: var(--radius-sm);
+            font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
+        }
+
+        .form-footer {
+            margin-top: 1.5rem;
+            text-align: center;
+            font-size: 0.875rem;
+            color: var(--text-light);
+        }
+
+        .form-footer a {
+            color: var(--primary-blue);
+            font-weight: 500;
+            text-decoration: none;
         }
 
         /* Hero Section */
         .hero {
             background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
             color: white;
-            padding: 8rem 0 5rem;
+            padding: 9rem 0 6rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            opacity: 0.1;
+            z-index: 0;
         }
 
         .hero-content {
             max-width: 600px;
+            position: relative;
+            z-index: 1;
         }
 
         .hero h1 {
-            font-size: 3rem;
-            font-weight: 800;
+            font-size: 3.25rem;
+            font-weight: 700;
             line-height: 1.2;
             margin-bottom: 1.5rem;
         }
@@ -203,7 +347,7 @@
         }
 
         .hero-btns .btn-outline:hover {
-            background: rgba(255,255,255,0.1);
+            background: rgba(255, 255, 255, 0.1);
         }
 
         /* Grammar Levels Section */
@@ -224,6 +368,7 @@
             overflow: hidden;
             box-shadow: var(--shadow-sm);
             transition: all 0.3s ease;
+            border: 1px solid #e2e8f0;
         }
 
         .level-card:hover {
@@ -232,7 +377,7 @@
         }
 
         .level-header {
-            padding: 1.5rem;
+            padding: 1.75rem;
             background: var(--primary-blue);
             color: white;
         }
@@ -240,10 +385,11 @@
         .level-header h3 {
             font-size: 1.5rem;
             margin-bottom: 0.5rem;
+            font-weight: 600;
         }
 
         .level-body {
-            padding: 1.5rem;
+            padding: 1.75rem;
         }
 
         .level-body ul {
@@ -252,7 +398,7 @@
 
         .level-body li {
             padding: 0.75rem 0;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid #f1f5f9;
             display: flex;
             align-items: center;
         }
@@ -270,7 +416,7 @@
             display: inline-block;
             padding: 0.25rem 0.75rem;
             background: var(--light-blue);
-            color: var(--primary-blue);
+            color: white;
             border-radius: 1rem;
             font-size: 0.75rem;
             font-weight: 600;
@@ -284,18 +430,19 @@
 
         .topics-container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.75rem;
             margin-top: 2rem;
         }
 
         .topic-card {
             background: var(--white);
             border-radius: var(--radius-md);
-            padding: 1.5rem;
+            padding: 1.75rem;
             box-shadow: var(--shadow-sm);
             transition: all 0.3s ease;
             border-left: 4px solid var(--primary-blue);
+            border: 1px solid #e2e8f0;
         }
 
         .topic-card:hover {
@@ -307,11 +454,12 @@
             font-size: 1.25rem;
             margin-bottom: 1rem;
             color: var(--primary-blue);
+            font-weight: 600;
         }
 
         .topic-card p {
             color: var(--text-light);
-            font-size: 0.875rem;
+            font-size: 0.9375rem;
             margin-bottom: 1.5rem;
         }
 
@@ -323,15 +471,16 @@
         .quiz-container {
             display: grid;
             grid-template-columns: 1fr 300px;
-            gap: 2rem;
+            gap: 2.5rem;
             margin-top: 2rem;
         }
 
         .quiz-card {
             background: var(--white);
             border-radius: var(--radius-md);
-            padding: 2rem;
+            padding: 2.5rem;
             box-shadow: var(--shadow-sm);
+            border: 1px solid #e2e8f0;
         }
 
         .quiz-header {
@@ -340,7 +489,7 @@
             align-items: center;
             margin-bottom: 1.5rem;
             padding-bottom: 1rem;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid #f1f5f9;
         }
 
         .quiz-progress {
@@ -418,11 +567,12 @@
         .leaderboard {
             background: var(--white);
             border-radius: var(--radius-md);
-            padding: 1.5rem;
+            padding: 1.75rem;
             box-shadow: var(--shadow-sm);
             height: fit-content;
             position: sticky;
             top: 6rem;
+            border: 1px solid #e2e8f0;
         }
 
         .leaderboard h3 {
@@ -432,6 +582,7 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            font-weight: 600;
         }
 
         .leaderboard h3 i {
@@ -446,7 +597,7 @@
             display: flex;
             align-items: center;
             padding: 0.75rem 0;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid #f1f5f9;
         }
 
         .leaderboard-item:last-child {
@@ -460,7 +611,7 @@
             align-items: center;
             justify-content: center;
             background: var(--light-blue);
-            color: var(--primary-blue);
+            color: white;
             border-radius: 50%;
             font-weight: 600;
             margin-right: 1rem;
@@ -497,7 +648,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--primary-blue);
+            color: white;
             font-weight: 600;
             font-size: 0.75rem;
         }
@@ -520,9 +671,10 @@
         .explanation-card {
             background: var(--white);
             border-radius: var(--radius-md);
-            padding: 2rem;
+            padding: 2.5rem;
             box-shadow: var(--shadow-sm);
             margin-bottom: 2rem;
+            border: 1px solid #e2e8f0;
         }
 
         .explanation-card h3 {
@@ -532,6 +684,7 @@
             display: flex;
             align-items: center;
             gap: 0.75rem;
+            font-weight: 600;
         }
 
         .explanation-card h3 i {
@@ -546,12 +699,13 @@
             font-size: 1.125rem;
             margin: 1.5rem 0 0.75rem;
             color: var(--dark-blue);
+            font-weight: 500;
         }
 
         .example-box {
             background: #f8fafc;
             border-left: 3px solid var(--primary-blue);
-            padding: 1rem;
+            padding: 1.25rem;
             border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
             margin: 1rem 0;
         }
@@ -570,16 +724,148 @@
             font-weight: 500;
         }
 
+        /* Chatbot Styles */
+        .chatbot-container {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 1000;
+        }
+
+        .chatbot-toggle {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s ease;
+        }
+
+        .chatbot-toggle:hover {
+            background: var(--dark-blue);
+            transform: scale(1.1);
+        }
+
+        .chatbot-window {
+            position: absolute;
+            bottom: 80px;
+            right: 0;
+            width: 350px;
+            background: white;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            transform: scale(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease;
+            opacity: 0;
+            border: 1px solid #e2e8f0;
+        }
+
+        .chatbot-window.active {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        .chatbot-header {
+            padding: 1rem 1.5rem;
+            background: var(--primary-blue);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .chatbot-header h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+        }
+
+        .chatbot-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.25rem;
+            cursor: pointer;
+        }
+
+        .chatbot-messages {
+            height: 300px;
+            overflow-y: auto;
+            padding: 1.5rem;
+            background: #f9fafb;
+        }
+
+        .message {
+            margin-bottom: 1rem;
+            max-width: 80%;
+            padding: 0.75rem 1rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.9375rem;
+            line-height: 1.4;
+        }
+
+        .bot-message {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 0 var(--radius-md) var(--radius-md) var(--radius-md);
+            margin-right: auto;
+        }
+
+        .user-message {
+            background: var(--primary-blue);
+            color: white;
+            border-radius: var(--radius-md) 0 var(--radius-md) var(--radius-md);
+            margin-left: auto;
+        }
+
+        .chatbot-input {
+            display: flex;
+            padding: 1rem;
+            border-top: 1px solid #e2e8f0;
+            background: white;
+        }
+
+        .chatbot-input input {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border: 1px solid #e2e8f0;
+            border-radius: var(--radius-sm);
+            font-family: 'Poppins', sans-serif;
+            outline: none;
+        }
+
+        .chatbot-input button {
+            margin-left: 0.5rem;
+            background: var(--primary-blue);
+            color: white;
+            border: none;
+            border-radius: var(--radius-sm);
+            padding: 0 1rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .chatbot-input button:hover {
+            background: var(--dark-blue);
+        }
+
         /* Footer */
         footer {
-            background: var(--dark-blue);
+            background: #111827;
             color: white;
-            padding: 4rem 0 2rem;
+            padding: 5rem 0 2rem;
         }
 
         .footer-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 3rem;
             margin-bottom: 3rem;
         }
@@ -589,6 +875,8 @@
             margin-bottom: 1.5rem;
             position: relative;
             display: inline-block;
+            color: var(--light-blue);
+            font-weight: 600;
         }
 
         .footer-col h3:after {
@@ -598,7 +886,7 @@
             left: 0;
             width: 2rem;
             height: 2px;
-            background: var(--light-blue);
+            background: var(--primary-blue);
         }
 
         .footer-col ul {
@@ -610,8 +898,9 @@
         }
 
         .footer-col a {
-            color: rgba(255,255,255,0.8);
+            color: rgba(255, 255, 255, 0.7);
             transition: all 0.2s ease;
+            text-decoration: none;
         }
 
         .footer-col a:hover {
@@ -619,12 +908,62 @@
             padding-left: 0.25rem;
         }
 
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .footer-social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            background: var(--primary-blue);
+            transform: translateY(-3px);
+        }
+
+        .footer-newsletter p {
+            margin-bottom: 1rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9375rem;
+        }
+
+        .footer-newsletter input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: none;
+            border-radius: var(--radius-sm);
+            margin-bottom: 0.75rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
         .footer-bottom {
             text-align: center;
             padding-top: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            color: rgba(255,255,255,0.6);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
             font-size: 0.875rem;
+        }
+
+        .developer-credit {
+            margin-top: 1rem;
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .developer-credit a {
+            color: var(--light-blue);
+            text-decoration: none;
+            font-weight: 500;
         }
 
         /* Responsive Styles */
@@ -642,10 +981,26 @@
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: var(--shadow-sm);
+            }
+
+            .nav-links.active {
+                display: flex;
             }
 
             .mobile-menu-btn {
                 display: block;
+            }
+
+            .auth-buttons {
+                display: none;
             }
 
             .hero h1 {
@@ -658,6 +1013,10 @@
 
             section {
                 padding: 3rem 0;
+            }
+
+            .chatbot-window {
+                width: 300px;
             }
         }
 
@@ -673,43 +1032,126 @@
             .hero h1 {
                 font-size: 2rem;
             }
+
+            .modal-content {
+                padding: 1.5rem;
+            }
+
+            .chatbot-container {
+                bottom: 1rem;
+                right: 1rem;
+            }
+
+            .chatbot-window {
+                width: 280px;
+            }
         }
 
-        a{
-            text-decoration: none;
+        /* Text Center Utility */
+        .text-center {
+            text-align: center;
+        }
+
+        a {
+            text-decoration: none !important;
+        }
+
+        li {
+            list-style-type: none;
         }
     </style>
 </head>
+
 <body>
     <!-- Header -->
     <header>
         <div class="container">
             <nav>
-                <div class="logo">Edu<span>Chat</span></div>
-                <ul class="nav-links" style="list-style-type: none; ">
-                    <li><a style="text-decoration: none;"  href="#home">Home</a></li>
-                    <li><a style="text-decoration: none;" href="#levels">Levels</a></li>
-                    <li><a style="text-decoration: none;" href="#topics">Topics</a></li>
-                    <li><a style="text-decoration: none;" href="#quiz">Quiz</a></li>
-                    <li><a style="text-decoration: none;" href="#explanation">Learn</a></li>
+                <div class="logo">
+                    <span>EduChat</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#levels">Levels</a></li>
+                    <li><a href="#topics">Topics</a></li>
+                    <li><a href="#quiz">Quiz</a></li>
+                    <li><a href="#explanation">Learn</a></li>
                 </ul>
+                <div class="auth-buttons">
+                    <button id="login-btn" class="btn btn-outline">Login</button>
+                    <button id="register-btn" class="btn">Register</button>
+                </div>
+                <div class="live-time">
+                    <i class="far fa-clock"></i>
+                    <span id="current-time"></span>
+                </div>
                 <button class="mobile-menu-btn">
-                    <i class="fas fa-bars"></i>
                 </button>
             </nav>
         </div>
     </header>
 
+    <!-- Login Modal -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 class="modal-title">Login to Your Account</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" placeholder="Enter your password" required>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">Login</button>
+                <div class="form-footer">
+                    Don't have an account? <a href="#" id="show-register">Register</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div id="register-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 class="modal-title">Create an Account</h2>
+            <form id="register-form">
+                <div class="form-group">
+                    <label for="register-name">Full Name</label>
+                    <input type="text" id="register-name" placeholder="Enter your full name" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-email">Email</label>
+                    <input type="email" id="register-email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-password">Password</label>
+                    <input type="password" id="register-password" placeholder="Create a password" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-confirm">Confirm Password</label>
+                    <input type="password" id="register-confirm" placeholder="Confirm your password" required>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">Register</button>
+                <div class="form-footer">
+                    Already have an account? <a href="#" id="show-login">Login</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container">
             <div class="hero-content">
-                <h1>I'll Help You <br>
-                    Learn or Teach English <br>
-                    The Easy Way</h1>
-                <p>Clear explanations, practical examples, and interactive quizzes to help you improve your English grammar skills effectively.</p>
+                <h1>Master English Grammar With Interactive Lessons</h1>
+                <p>Clear explanations, practical examples, and interactive quizzes to help you improve your English
+                    grammar skills effectively.</p>
                 <div class="hero-btns">
-                    <a href="#quiz"class="btn">Start Quiz</a>
+                    <a href="#quiz" class="btn">Start Quiz</a>
                     <a href="#explanation" class="btn btn-outline">Learn Grammar</a>
                 </div>
             </div>
@@ -721,9 +1163,10 @@
         <div class="container">
             <h2 class="section-title">Grammar Levels</h2>
             <p class="text-center" style="max-width: 700px; margin: 0 auto 2rem;">
-                Our curriculum is structured from foundational concepts to more complex grammar rules, ensuring progressive learning.
+                Our curriculum is structured from foundational concepts to more complex grammar rules, ensuring
+                progressive learning.
             </p>
-            
+
             <div class="levels-container">
                 <!-- Beginner Level -->
                 <div class="level-card">
@@ -758,7 +1201,7 @@
                         </ul>
                     </div>
                 </div>
-                
+
                 <!-- Elementary Level -->
                 <div class="level-card">
                     <div class="level-header" style="background: #3b82f6;">
@@ -791,7 +1234,7 @@
                         </ul>
                     </div>
                 </div>
-                
+
                 <!-- Intermediate Level -->
                 <div class="level-card">
                     <div class="level-header" style="background: #1d4ed8;">
@@ -835,42 +1278,76 @@
             <p class="text-center" style="max-width: 700px; margin: 0 auto 2rem;">
                 Explore our most frequently studied grammar concepts with clear explanations and examples.
             </p>
-            
+
             <div class="topics-container">
                 <div class="topic-card">
                     <h3>Tenses</h3>
                     <p>Learn all 12 English tenses with timelines, examples, and usage rules.</p>
-                    <a href="#explanation" class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.875rem;">Learn More</a>
+                    <a href="#explanation" class="btn btn-outline"
+                        style="padding: 0.5rem 1rem; font-size: 0.875rem;">Learn More</a>
                 </div>
-                
+
                 <div class="topic-card">
                     <h3>Parts of Speech</h3>
                     <p>Understand nouns, verbs, adjectives, adverbs and their functions in sentences.</p>
-                    <a href="#explanation" class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.875rem;">Learn More</a>
+                    <a href="#explanation" class="btn btn-outline"
+                        style="padding: 0.5rem 1rem; font-size: 0.875rem;">Learn More</a>
                 </div>
-                
+
                 <div class="topic-card">
                     <h3>Articles</h3>
                     <p>Master the use of 'a', 'an', and 'the' with practical guidelines.</p>
-                    <a href="#explanation" class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.875rem;">Learn More</a>
+                    <a href="#explanation" class="btn btn-outline"
+                        style="padding: 0.5rem 1rem; font-size: 0.875rem;">Learn More</a>
                 </div>
-                
+
                 <div class="topic-card">
                     <h3>Prepositions</h3>
                     <p>Learn how to use prepositions of time, place, and movement correctly.</p>
-                    <a href="#explanation" class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.875rem;">Learn More</a>
+                    <a href="#explanation" class="btn btn-outline"
+                        style="padding: 0.5rem 1rem; font-size: 0.875rem;">Learn More</a>
                 </div>
-                
+
                 <div class="topic-card">
                     <h3>Modal Verbs</h3>
                     <p>Understand can, could, may, might, must, should and their uses.</p>
-                    <a href="#explanation" class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.875rem;">Learn More</a>
+                    <a href="#explanation" class="btn btn-outline"
+                        style="padding: 0.5rem 1rem; font-size: 0.875rem;">Learn More</a>
                 </div>
-                
+
                 <div class="topic-card">
                     <h3>Conditionals</h3>
                     <p>Learn zero, first, second, third and mixed conditional forms.</p>
-                    <a href="#explanation" class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.875rem;">Learn More</a>
+                    <a href="#explanation" class="btn btn-outline"
+                        style="padding: 0.5rem 1rem; font-size: 0.875rem;">Learn More</a>
+                </div>
+
+                <div class="topic-card">
+                    <h3>Reported Speech</h3>
+                    <p>Master how to report what someone said with proper tense changes.</p>
+                    <a href="#explanation" class="btn btn-outline"
+                        style="padding: 0.5rem 1rem; font-size: 0.875rem;">Learn More</a>
+                </div>
+
+                <div class="topic-card">
+                    <h3>Passive Voice</h3>
+                    <p>Learn when and how to use passive constructions effectively.</p>
+                    <a href="#explanation" class="btn btn-outline"
+                        style="padding: 0.5rem 1rem; font-size: 0.875rem;">Learn More</a>
+                </div>
+
+                <div class="topic-card">
+                    <h3>Gerunds & Infinitives</h3>
+                    <p>Understand when to use verb+ing vs. to+verb forms.</p>
+                    <a href="#explanation" class="btn btn-outline"
+                        style="padding: 0.5rem 1rem; font-size: 0.875rem;">Learn More</a>
+                </div>
+
+                <div class="topic-card">
+                    <h3>Phrasal Verbs</h3>
+                    <p>Master common phrasal verbs and their meanings.</p>
+                    <a href="#explanation" class="btn btn-outline"
+                        style="padding: 0.5rem 1rem; font-size: 0.875rem;">Learn More</a>
                 </div>
             </div>
         </div>
@@ -883,7 +1360,7 @@
             <p class="text-center" style="max-width: 700px; margin: 0 auto 2rem;">
                 Take our interactive quiz to assess your grammar skills and compare your score with others.
             </p>
-            
+
             <div class="quiz-container">
                 <!-- Quiz Area -->
                 <div class="quiz-card">
@@ -891,22 +1368,23 @@
                         <h3>Grammar Quiz</h3>
                         <div class="quiz-progress">Question 1 of 10</div>
                     </div>
-                    
+
                     <div class="quiz-question">
                         What is the correct form of the verb in this sentence: "She _____ to school every day."?
                     </div>
-                    
+
                     <div class="quiz-options">
                         <div class="quiz-option">go</div>
                         <div class="quiz-option selected">goes</div>
                         <div class="quiz-option">going</div>
                         <div class="quiz-option">gone</div>
                     </div>
-                    
+
                     <div class="quiz-feedback correct">
-                        <i class="fas fa-check-circle"></i> Correct! "Goes" is the right answer because it agrees with the third person singular subject "she".
+                        <i class="fas fa-check-circle"></i> Correct! "Goes" is the right answer because it agrees with
+                        the third person singular subject "she".
                     </div>
-                    
+
                     <div class="quiz-actions">
                         <button class="btn btn-outline">
                             <i class="fas fa-arrow-left"></i> Previous
@@ -916,7 +1394,7 @@
                         </button>
                     </div>
                 </div>
-                
+
                 <!-- Leaderboard -->
                 <div class="leaderboard">
                     <h3><i class="fas fa-trophy"></i> Leaderboard</h3>
@@ -974,12 +1452,12 @@
             <p class="text-center" style="max-width: 700px; margin: 0 auto 3rem;">
                 Clear, detailed explanations of English grammar concepts with multiple examples.
             </p>
-            
+
             <div class="explanation-container">
                 <!-- Present Simple Explanation -->
                 <div class="explanation-card">
                     <h3><i class="fas fa-clock"></i> Present Simple Tense</h3>
-                    
+
                     <div class="explanation-content">
                         <h4>When to Use:</h4>
                         <p>The present simple tense is used for:</p>
@@ -989,19 +1467,22 @@
                             <li>General truths (Water boils at 100°C)</li>
                             <li>Fixed arrangements (The train leaves at 6 pm)</li>
                         </ul>
-                        
+
                         <h4>Structure:</h4>
                         <p><strong>Positive:</strong> Subject + base form of verb (add -s/-es for he/she/it)</p>
                         <p><strong>Negative:</strong> Subject + do/does + not + base form</p>
                         <p><strong>Question:</strong> Do/Does + subject + base form</p>
-                        
+
                         <div class="example-box">
                             <h4>Examples:</h4>
-                            <p><span class="example-correct">Correct:</span> "She <strong>works</strong> at a hospital." (Third person singular adds -s)</p>
-                            <p><span class="example-correct">Correct:</span> "They <strong>work</strong> at a hospital." (Plural subject uses base form)</p>
-                            <p><span class="example-incorrect">Incorrect:</span> "She work at a hospital." (Missing -s for third person singular)</p>
+                            <p><span class="example-correct">Correct:</span> "She <strong>works</strong> at a hospital."
+                                (Third person singular adds -s)</p>
+                            <p><span class="example-correct">Correct:</span> "They <strong>work</strong> at a hospital."
+                                (Plural subject uses base form)</p>
+                            <p><span class="example-incorrect">Incorrect:</span> "She work at a hospital." (Missing -s
+                                for third person singular)</p>
                         </div>
-                        
+
                         <h4>Common Mistakes:</h4>
                         <ul style="margin-left: 1.5rem;">
                             <li>Forgetting the -s/-es ending for third person singular</li>
@@ -1010,11 +1491,49 @@
                         </ul>
                     </div>
                 </div>
-                
+
+                <!-- Present Continuous Explanation -->
+                <div class="explanation-card">
+                    <h3><i class="fas fa-running"></i> Present Continuous Tense</h3>
+
+                    <div class="explanation-content">
+                        <h4>When to Use:</h4>
+                        <p>The present continuous tense is used for:</p>
+                        <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                            <li>Actions happening now (I am reading a book)</li>
+                            <li>Temporary situations (She is staying with friends this week)</li>
+                            <li>Future arrangements (We are flying to Paris tomorrow)</li>
+                            <li>Changing situations (The climate is getting warmer)</li>
+                        </ul>
+
+                        <h4>Structure:</h4>
+                        <p><strong>Positive:</strong> Subject + am/is/are + verb-ing</p>
+                        <p><strong>Negative:</strong> Subject + am/is/are + not + verb-ing</p>
+                        <p><strong>Question:</strong> Am/Is/Are + subject + verb-ing</p>
+
+                        <div class="example-box">
+                            <h4>Examples:</h4>
+                            <p><span class="example-correct">Correct:</span> "They <strong>are watching</strong> TV
+                                right now." (Action in progress)</p>
+                            <p><span class="example-correct">Correct:</span> "I <strong>am meeting</strong> John later."
+                                (Future arrangement)</p>
+                            <p><span class="example-incorrect">Incorrect:</span> "She is work at the moment." (Should be
+                                "working")</p>
+                        </div>
+
+                        <h4>Common Mistakes:</h4>
+                        <ul style="margin-left: 1.5rem;">
+                            <li>Forgetting the -ing ending on the main verb</li>
+                            <li>Using present continuous for permanent situations</li>
+                            <li>Confusing with present simple for future events</li>
+                        </ul>
+                    </div>
+                </div>
+
                 <!-- Articles Explanation -->
                 <div class="explanation-card">
                     <h3><i class="fas fa-file-alt"></i> Articles (a, an, the)</h3>
-                    
+
                     <div class="explanation-content">
                         <h4>When to Use:</h4>
                         <p>Articles are used before nouns:</p>
@@ -1023,19 +1542,24 @@
                             <li><strong>the</strong> - definite article (specific or previously mentioned)</li>
                             <li><strong>no article</strong> - with plural/uncountable nouns in general sense</li>
                         </ul>
-                        
+
                         <h4>Rules:</h4>
                         <p><strong>'a'</strong> before consonant sounds (a book, a university)</p>
                         <p><strong>'an'</strong> before vowel sounds (an apple, an hour)</p>
                         <p><strong>'the'</strong> when the listener knows which specific thing you mean</p>
-                        
+
                         <div class="example-box">
                             <h4>Examples:</h4>
-                            <p><span class="example-correct">Correct:</span> "I saw <strong>a</strong> dog in <strong>the</strong> park." (First mention uses 'a', specific park uses 'the')</p>
-                            <p><span class="example-correct">Correct:</span> "<strong>The</strong> dog was chasing <strong>a</strong> cat." (Now we know which dog)</p>
-                            <p><span class="example-incorrect">Incorrect:</span> "I want to buy the car." (Which car? Should be 'a car' if not specific)</p>
+                            <p><span class="example-correct">Correct:</span> "I saw <strong>a</strong> dog in
+                                <strong>the</strong> park." (First mention uses 'a', specific park uses 'the')
+                            </p>
+                            <p><span class="example-correct">Correct:</span> "<strong>The</strong> dog was chasing
+                                <strong>a</strong> cat." (Now we know which dog)
+                            </p>
+                            <p><span class="example-incorrect">Incorrect:</span> "I want to buy the car." (Which car?
+                                Should be 'a car' if not specific)</p>
                         </div>
-                        
+
                         <h4>Common Mistakes:</h4>
                         <ul style="margin-left: 1.5rem;">
                             <li>Using 'the' with general plural/uncountable nouns</li>
@@ -1048,15 +1572,47 @@
         </div>
     </section>
 
+    <!-- Chatbot -->
+    <div class="chatbot-container">
+        <div class="chatbot-toggle">
+            <i class="fas fa-comment-dots"></i>
+        </div>
+        <div class="chatbot-window">
+            <div class="chatbot-header">
+                <h3>Grammar Helper</h3>
+                <button class="chatbot-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="chatbot-messages">
+                <div class="message bot-message">
+                    Hello! I'm your Grammar Helper. Ask me anything about English grammar and I'll do my best to help!
+                </div>
+            </div>
+            <div class="chatbot-input">
+                <input type="text" placeholder="Ask a grammar question...">
+                <button><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-container">
                 <div class="footer-col">
-                    <h3>TomiGrammar</h3>
-                    <p>Your complete guide to mastering English grammar from basic to intermediate levels.</p>
+                    <h3>EduChat Grammar</h3>
+                    <p>Your complete guide to mastering English grammar from basic to advanced levels with interactive
+                        lessons and quizzes.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
                 </div>
-                
+
                 <div class="footer-col">
                     <h3>Quick Links</h3>
                     <ul>
@@ -1067,55 +1623,282 @@
                         <li><a href="#explanation">Explanations</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-col">
                     <h3>Grammar Resources</h3>
                     <ul>
                         <li><a href="#">Beginner Lessons</a></li>
                         <li><a href="#">Intermediate Topics</a></li>
+                        <li><a href="#">Advanced Grammar</a></li>
                         <li><a href="#">Practice Exercises</a></li>
                         <li><a href="#">Common Mistakes</a></li>
+                        <li><a href="#">Grammar Rules PDF</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-col">
-                    <h3>Contact</h3>
+                    <h3>Support</h3>
                     <ul>
-                        <li><a href="mailto:info@tomigrammar.com">info@tomigrammar.com</a></li>
                         <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
                         <li><a href="#">Feedback</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
                     </ul>
+                </div>
+
+                <div class="footer-col footer-newsletter">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to get weekly grammar tips and learning resources.</p>
+                    <input type="email" placeholder="Your email address">
+                    <button class="btn" style="width: 100%;">Subscribe</button>
                 </div>
             </div>
-            
+
             <div class="footer-bottom">
-                <p>&copy; 2025 EduChat . All rights reserved.</p>
+                <p>&copy; 2023 EduChat Grammar. All rights reserved. | Designed with <i class="fas fa-heart"
+                        style="color: #f87171;"></i> for English learners</p>
+                <div class="developer-credit">
+                    Developed by <a href="#">Arik Al Ahsan</a>
+                </div>
             </div>
         </div>
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // Mobile Menu Toggle
             const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
             const navLinks = document.querySelector('.nav-links');
-            
-            mobileMenuBtn.addEventListener('click', function() {
-                navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+
+            mobileMenuBtn.addEventListener('click', function () {
+                navLinks.classList.toggle('active');
             });
-            
+
             // Responsive adjustment for mobile menu
             function handleResize() {
                 if (window.innerWidth > 768) {
-                    navLinks.style.display = 'flex';
-                } else {
-                    navLinks.style.display = 'none';
+                    navLinks.classList.remove('active');
                 }
             }
-            
+
             window.addEventListener('resize', handleResize);
-            handleResize(); // Initialize
-            
+
+            // Modal functionality
+            const loginModal = document.getElementById('login-modal');
+            const registerModal = document.getElementById('register-modal');
+            const loginBtn = document.getElementById('login-btn');
+            const registerBtn = document.getElementById('register-btn');
+            const showRegister = document.getElementById('show-register');
+            const showLogin = document.getElementById('show-login');
+            const closeButtons = document.querySelectorAll('.close-modal');
+
+            // Show login modal
+            loginBtn.addEventListener('click', function () {
+                loginModal.style.display = 'flex';
+                setTimeout(() => {
+                    loginModal.classList.add('active');
+                }, 10);
+                document.body.style.overflow = 'hidden';
+            });
+
+            // Show register modal
+            registerBtn.addEventListener('click', function () {
+                registerModal.style.display = 'flex';
+                setTimeout(() => {
+                    registerModal.classList.add('active');
+                }, 10);
+                document.body.style.overflow = 'hidden';
+            });
+
+            // Switch to register from login
+            showRegister.addEventListener('click', function (e) {
+                e.preventDefault();
+                loginModal.classList.remove('active');
+                setTimeout(() => {
+                    loginModal.style.display = 'none';
+                    registerModal.style.display = 'flex';
+                    setTimeout(() => {
+                        registerModal.classList.add('active');
+                    }, 10);
+                }, 300);
+            });
+
+            // Switch to login from register
+            showLogin.addEventListener('click', function (e) {
+                e.preventDefault();
+                registerModal.classList.remove('active');
+                setTimeout(() => {
+                    registerModal.style.display = 'none';
+                    loginModal.style.display = 'flex';
+                    setTimeout(() => {
+                        loginModal.classList.add('active');
+                    }, 10);
+                }, 300);
+            });
+
+            // Close modals
+            closeButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    loginModal.classList.remove('active');
+                    registerModal.classList.remove('active');
+                    setTimeout(() => {
+                        loginModal.style.display = 'none';
+                        registerModal.style.display = 'none';
+                        document.body.style.overflow = 'auto';
+                    }, 300);
+                });
+            });
+
+            // Close when clicking outside modal
+            window.addEventListener('click', function (e) {
+                if (e.target === loginModal) {
+                    loginModal.classList.remove('active');
+                    setTimeout(() => {
+                        loginModal.style.display = 'none';
+                        document.body.style.overflow = 'auto';
+                    }, 300);
+                }
+                if (e.target === registerModal) {
+                    registerModal.classList.remove('active');
+                    setTimeout(() => {
+                        registerModal.style.display = 'none';
+                        document.body.style.overflow = 'auto';
+                    }, 300);
+                }
+            });
+
+            // Form submission
+            document.getElementById('login-form').addEventListener('submit', function (e) {
+                e.preventDefault();
+                alert('Login functionality would be implemented here');
+                loginModal.classList.remove('active');
+                setTimeout(() => {
+                    loginModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }, 300);
+            });
+
+            document.getElementById('register-form').addEventListener('submit', function (e) {
+                e.preventDefault();
+                const password = document.getElementById('register-password').value;
+                const confirm = document.getElementById('register-confirm').value;
+
+                if (password !== confirm) {
+                    alert('Passwords do not match!');
+                    return;
+                }
+
+                alert('Registration successful!');
+                registerModal.classList.remove('active');
+                setTimeout(() => {
+                    registerModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }, 300);
+            });
+
+            // Live time display
+            function updateTime() {
+                const now = new Date();
+                const timeElement = document.getElementById('current-time');
+                const options = {
+                    weekday: 'long',
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit'
+                };
+                timeElement.textContent = now.toLocaleDateString('en-US', options);
+            }
+
+            updateTime();
+            setInterval(updateTime, 1000);
+
+            // Chatbot functionality
+            const chatbotToggle = document.querySelector('.chatbot-toggle');
+            const chatbotWindow = document.querySelector('.chatbot-window');
+            const chatbotClose = document.querySelector('.chatbot-close');
+            const chatbotInput = document.querySelector('.chatbot-input input');
+            const chatbotSend = document.querySelector('.chatbot-input button');
+            const chatbotMessages = document.querySelector('.chatbot-messages');
+
+            chatbotToggle.addEventListener('click', function () {
+                chatbotWindow.classList.toggle('active');
+            });
+
+            chatbotClose.addEventListener('click', function () {
+                chatbotWindow.classList.remove('active');
+            });
+
+            function addBotMessage(text) {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = 'message bot-message';
+                messageDiv.textContent = text;
+                chatbotMessages.appendChild(messageDiv);
+                chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+            }
+
+            function addUserMessage(text) {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = 'message user-message';
+                messageDiv.textContent = text;
+                chatbotMessages.appendChild(messageDiv);
+                chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+            }
+
+            chatbotSend.addEventListener('click', function () {
+                const message = chatbotInput.value.trim();
+                if (message) {
+                    addUserMessage(message);
+                    chatbotInput.value = '';
+
+                    // Simple bot responses
+                    const grammarResponses = {
+                        "present simple": "The Present Simple tense is used for habits, routines, and general truths. For example: 'She works in a bank.'",
+                        "present continuous": "The Present Continuous tense is used for actions happening now or future arrangements. For example: 'I am studying English now.'",
+                        "article": "Articles are 'a', 'an', and 'the'. Use 'a' before consonant sounds, 'an' before vowel sounds, and 'the' for specific things.",
+                        "oi kiree": "Oi kiree 🍉",
+                        "zaki al abid": "Topper in Class 10",
+                        "rubia": "Nosto Meya, Ak Number Beadop",
+                        "arik al ahsan": "Full Stack Web Developer based in (MERN STACK)",
+                        "arifin": "Arik er Enemey",
+                        "hi": "Hello, I can help you ?"
+                    };
+
+                    setTimeout(() => {
+                        const text = message.toLowerCase();
+                        let found = false;
+
+                        for (const key in grammarResponses) {
+                            const keywords = key.toLowerCase().split(" "); // split key into words
+                            for (const word of keywords) {
+                                if (text.includes(word)) {
+                                    addBotMessage(grammarResponses[key]);
+                                    found = true;
+                                    break;
+                                }
+                            }
+                            if (found) break;
+                        }
+
+                        if (!found) {
+                            addBotMessage("I'm a simple grammar helper. Try asking about specific topics like 'present simple', 'articles', or 'tenses' for more detailed answers.");
+                        }
+                    }, 1000);
+
+
+                }
+            });
+
+            chatbotInput.addEventListener('keypress', function (e) {
+                if (e.key === 'Enter') {
+                    chatbotSend.click();
+                }
+            });
+
             // Quiz Functionality
             const quizQuestions = [
                 {
@@ -1156,9 +1939,75 @@
                     ],
                     answer: 1,
                     explanation: "The past simple tense (verb + -ed or irregular form) is used for completed actions at specific times in the past. 'I finished my work yesterday' is correct."
+                },
+                {
+                    question: "Choose the correct comparative form:",
+                    options: [
+                        "This book is more interesting than that one.",
+                        "This book is interestinger than that one.",
+                        "This book is most interesting than that one.",
+                        "This book is interestinger than that one."
+                    ],
+                    answer: 0,
+                    explanation: "For adjectives with two or more syllables (like 'interesting'), we use 'more' + adjective to form the comparative. 'More interesting' is correct."
+                },
+                {
+                    question: "Which sentence uses the present perfect correctly?",
+                    options: [
+                        "I saw that movie last week.",
+                        "I have seen that movie last week.",
+                        "I have seen that movie.",
+                        "I was seeing that movie."
+                    ],
+                    answer: 2,
+                    explanation: "The present perfect (have/has + past participle) connects past actions to the present. 'I have seen that movie' is correct when we don't specify when it happened."
+                },
+                {
+                    question: "Identify the correct passive voice sentence:",
+                    options: [
+                        "The book was wrote by J.K. Rowling.",
+                        "The book was written by J.K. Rowling.",
+                        "The book written by J.K. Rowling.",
+                        "The book was writing by J.K. Rowling."
+                    ],
+                    answer: 1,
+                    explanation: "The correct passive form is subject + was/were + past participle. 'The book was written by J.K. Rowling' is correct."
+                },
+                {
+                    question: "Which sentence uses 'fewer' correctly?",
+                    options: [
+                        "There are fewer students in class today.",
+                        "There are less students in class today.",
+                        "I have fewer money than you.",
+                        "We need fewer water to survive."
+                    ],
+                    answer: 0,
+                    explanation: "'Fewer' is used with countable nouns (students), while 'less' is used with uncountable nouns. 'There are fewer students in class today' is correct."
+                },
+                {
+                    question: "Choose the correct reported speech version: 'She said, \"I am happy.\"'",
+                    options: [
+                        "She said she is happy.",
+                        "She said she was happy.",
+                        "She said she had been happy.",
+                        "She said she has been happy."
+                    ],
+                    answer: 1,
+                    explanation: "In reported speech, present tense becomes past tense. 'She said she was happy' is the correct transformation."
+                },
+                {
+                    question: "Which sentence uses the correct conditional form?",
+                    options: [
+                        "If I will have time, I will call you.",
+                        "If I have time, I will call you.",
+                        "If I would have time, I will call you.",
+                        "If I had time, I will call you."
+                    ],
+                    answer: 1,
+                    explanation: "For first conditional (real possibility), we use 'if + present simple, will + base form'. 'If I have time, I will call you' is correct."
                 }
             ];
-            
+
             let currentQuestionIndex = 0;
             let score = 0;
             const quizQuestionElement = document.querySelector('.quiz-question');
@@ -1167,12 +2016,12 @@
             const quizProgressElement = document.querySelector('.quiz-progress');
             const quizNextButton = document.querySelector('.quiz-actions .btn:last-child');
             const quizPrevButton = document.querySelector('.quiz-actions .btn:first-child');
-            
+
             function loadQuestion(index) {
                 const question = quizQuestions[index];
                 quizQuestionElement.textContent = question.question;
                 quizProgressElement.textContent = `Question ${index + 1} of ${quizQuestions.length}`;
-                
+
                 quizOptionsElement.innerHTML = '';
                 question.options.forEach((option, i) => {
                     const optionElement = document.createElement('div');
@@ -1181,44 +2030,44 @@
                     optionElement.addEventListener('click', () => selectAnswer(i));
                     quizOptionsElement.appendChild(optionElement);
                 });
-                
+
                 quizFeedbackElement.className = 'quiz-feedback';
                 quizFeedbackElement.innerHTML = '';
-                
+
                 // Disable previous button on first question
                 quizPrevButton.disabled = index === 0;
-                
+
                 // Change next button text on last question
-                quizNextButton.innerHTML = index === quizQuestions.length - 1 ? 
-                    'See Results <i class="fas fa-poll"></i>' : 
+                quizNextButton.innerHTML = index === quizQuestions.length - 1 ?
+                    'See Results <i class="fas fa-poll"></i>' :
                     'Next <i class="fas fa-arrow-right"></i>';
             }
-            
+
             function selectAnswer(selectedIndex) {
                 const question = quizQuestions[currentQuestionIndex];
                 const options = document.querySelectorAll('.quiz-option');
-                
+
                 options.forEach((option, index) => {
                     option.classList.remove('selected', 'correct', 'incorrect');
-                    
+
                     if (index === question.answer) {
                         option.classList.add('correct');
                     } else if (index === selectedIndex) {
                         option.classList.add('incorrect');
                     }
                 });
-                
+
                 // Show feedback
                 quizFeedbackElement.className = `quiz-feedback ${selectedIndex === question.answer ? 'correct' : 'incorrect'}`;
                 quizFeedbackElement.innerHTML = `<i class="fas ${selectedIndex === question.answer ? 'fa-check-circle' : 'fa-times-circle'}"></i> ${question.explanation}`;
-                
+
                 // Update score if correct
                 if (selectedIndex === question.answer) {
                     score++;
                 }
             }
-            
-            quizNextButton.addEventListener('click', function() {
+
+            quizNextButton.addEventListener('click', function () {
                 if (currentQuestionIndex < quizQuestions.length - 1) {
                     currentQuestionIndex++;
                     loadQuestion(currentQuestionIndex);
@@ -1227,9 +2076,9 @@
                     quizQuestionElement.textContent = `Quiz Completed! Your score: ${score}/${quizQuestions.length}`;
                     quizOptionsElement.innerHTML = '';
                     quizFeedbackElement.className = 'quiz-feedback';
-                    quizFeedbackElement.innerHTML = `You answered ${Math.round((score/quizQuestions.length)*100)}% correctly. ${score === quizQuestions.length ? 'Perfect! 🎉' : score > quizQuestions.length/2 ? 'Good job! 👍' : 'Keep practicing! 💪'}`;
+                    quizFeedbackElement.innerHTML = `You answered ${Math.round((score / quizQuestions.length) * 100)}% correctly. ${score === quizQuestions.length ? 'Perfect! 🎉' : score > quizQuestions.length / 2 ? 'Good job! 👍' : 'Keep practicing! 💪'}`;
                     quizNextButton.textContent = 'Restart Quiz';
-                    quizNextButton.onclick = function() {
+                    quizNextButton.onclick = function () {
                         currentQuestionIndex = 0;
                         score = 0;
                         loadQuestion(0);
@@ -1237,32 +2086,38 @@
                     };
                 }
             });
-            
-            quizPrevButton.addEventListener('click', function() {
+
+            quizPrevButton.addEventListener('click', function () {
                 if (currentQuestionIndex > 0) {
                     currentQuestionIndex--;
                     loadQuestion(currentQuestionIndex);
                 }
             });
-            
+
             // Initialize quiz
             loadQuestion(0);
-            
+
             // Smooth scrolling for anchor links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
+                anchor.addEventListener('click', function (e) {
                     e.preventDefault();
-                    
+
                     const targetId = this.getAttribute('href');
                     const targetElement = document.querySelector(targetId);
-                    
+
                     window.scrollTo({
                         top: targetElement.offsetTop - 80,
                         behavior: 'smooth'
                     });
+
+                    // Close mobile menu if open
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                    }
                 });
             });
         });
     </script>
 </body>
+
 </html>
