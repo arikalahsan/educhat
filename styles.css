@@ -174,18 +174,6 @@ nav {
     width: 100%;
 }
 
-.hamburger {
-    display: none;
-    cursor: pointer;
-}
-
-.hamburger .line {
-    width: 25px;
-    height: 3px;
-    background: white;
-    margin: 5px;
-    transition: var(--transition);
-}
 
 /* Hero Section */
 .hero {

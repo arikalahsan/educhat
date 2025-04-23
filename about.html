@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - EduChat</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="oikiree.css">
+</head>
+<body>
+    <!-- Same header as index.html -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <span>EduChat</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#levels">Levels</a></li>
+                    <li><a href="#topics">Topics</a></li>
+                    <li><a href="#quiz">Quiz</a></li>
+                    <li><a href="#explanation">Learn</a></li>
+                </ul>
+                <div class="auth-buttons">
+                    <button id="login-btn" class="btn btn-outline">Login</button>
+                    <button id="register-btn" class="btn">Register</button>
+                </div>
+                <div class="live-time">
+                    <i class="far fa-clock"></i>
+                    <span id="current-time"></span>
+                </div>
+                <button class="mobile-menu-btn">
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Login Modal -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 class="modal-title">Login to Your Account</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" placeholder="Enter your password" required>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">Login</button>
+                <div class="form-footer">
+                    Don't have an account? <a href="#" id="show-register">Register</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <section class="about-section">
+        <div class="container">
+            <h2 class="section-title">About Our Team</h2>
+            
+            <div class="team-members">
+                <div class="team-card">
+                    <div class="team-img">
+                        <img src="images/arik.jpg" alt="Arik Al Ahsan">
+                    </div>
+                    <div class="team-info">
+                        <h3>Arik Al Ahsan</h3>
+                        <p class="role">Full Stack Web Developer</p>
+                        <p>Specializing in MERN stack development with 5+ years of experience building interactive web applications.</p>
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-github"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-card">
+                    <div class="team-img">
+                        <img src="images/zaki.jpg" alt="Zaki Al Abid">
+                    </div>
+                    <div class="team-info">
+                        <h3>Zaki Al Abid</h3>
+                        <p class="role">Founder & Content Creator</p>
+                        <p>English language expert with teaching experience and curriculum development.</p>
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="about-content">
+                <h3>Our Mission</h3>
+                <p>EduChat was founded in 2025 with the goal of making English grammar learning accessible, interactive, and effective for learners worldwide.</p>
+                
+                <h3>Our Approach</h3>
+                <p>We combine expert knowledge with modern web technologies to create an engaging learning experience that adapts to each student's needs.</p>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>EduChat Grammar</h3>
+                    <p>Your complete guide to mastering English grammar from basic to advanced levels with interactive
+                        lessons and quizzes.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#levels">Grammar Levels</a></li>
+                        <li><a href="#topics">Topics</a></li>
+                        <li><a href="#quiz">Quiz</a></li>
+                        <li><a href="#explanation">Explanations</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Grammar Resources</h3>
+                    <ul>
+                        <li><a href="#">Beginner Lessons</a></li>
+                        <li><a href="#">Intermediate Topics</a></li>
+                        <li><a href="#">Advanced Grammar</a></li>
+                        <li><a href="#">Practice Exercises</a></li>
+                        <li><a href="#">Common Mistakes</a></li>
+                        <li><a href="#">Grammar Rules PDF</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">Feedback</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="privecy.html">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col footer-newsletter">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to get weekly grammar tips and learning resources.</p>
+                    <input type="email" placeholder="Your email address">
+                    <button class="btn" style="width: 100%;">Subscribe</button>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2023 EduChat Grammar. All rights reserved. | Designed with <i class="fas fa-heart"
+                        style="color: #f87171;"></i> for English learners</p>
+                <div class="developer-credit">
+                    Developed by <a href="#">Arik Al Ahsan</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+    <!-- Same footer and chatbot as index.html -->
+</body>
+</html>
